@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+	
+	{% block content %}
+
+		
+	{% include 'header.html' %}
+	
+
+	{% if user.is_authenticated %}
+
+				
+			
+					
+
+					
+                    {% for users_link in users_links %}
+                    <a href="{% url 'url_view' users_link.short_slug %}">{{ users_link }}</a>
+                    <br>
+                    {% endfor %}
+					
+
+
+
+	{% else %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				
+					<span class="login100-form-title">
+						sorry only users can use this site
+						please login 
+					</span>
+
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	
+	{% endblock %}

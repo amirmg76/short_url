@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+	
+	{% block content %}
+
+		
+	{% include 'header.html' %}
+	
+
+	{% if user.is_authenticated %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form method="POST" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					{% csrf_token %}
+					<span class="login100-form-title">
+						url shortener
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter your full link">
+						<input class="input100" type="url" name="link" placeholder="Please enter your full link">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input120 validate-input1 m-b-64">
+						<input  class="input120" type="text" name="chosen_slug" placeholder="your chosen slug(optional)">
+						<span class="focus-input100"></span>
+					</div>
+
+					{% if messages %}
+					{% for message in messages %}
+					<div id="message" class="container">
+						<div class="alert alert-{{ message.tags }} alert-dismissible text-center" role="alert">
+							{{ message }}
+							<a href="{% url 'site_redirection' chosen_slug %}">{{ short_link }}</a>
+							<button type="button" class="close" data-dismiss="alert"></button>
+							
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+
+					<span class="txt1 p-b-9">
+							if your chosen slug got taken we attach a random slug
+					</span>
+
+
+
+					<div class="container-login100-form-btn m-b-24">
+						<button class="login100-form-btn">
+							submit
+						</button>
+					</div>
+
+					
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+	{% else %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				
+					<span class="login100-form-title">
+						sorry only users can use this site
+						please login 
+					</span>
+
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	
+	{% endblock %}

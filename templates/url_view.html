@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+	
+	{% block content %}
+
+		
+	{% include 'header.html' %}
+	
+
+	{% if user.is_authenticated %}
+
+				
+			
+					
+
+					
+                    <ul>
+                        <li>today views base on device {{ device_dict_today }}</li>
+                        <li>today views base on browser {{ browser_dict_today }}</li>
+                        <li>today unique views base on device {{ unique_device_dict_today }}</li>
+                        <li>today unique views base on browser {{ unique_browser_dict_today }}</li>
+                    </ul>
+                    <hr>
+                    <hr>
+                    <hr>
+                    <ul>
+                            <li>yesterday views base on device {{ device_dict_yesterday }}</li>
+                            <li>yesterday views base on browser {{ browser_dict_yesterday }}</li>
+                            <li>yesterday unique views base on device {{ unique_device_dict_yesterday }}</li>
+                            <li>yesterday unique views base on browser {{ unique_browser_dict_yesterday }}</li>
+                        </ul>
+                        <hr>
+                        <hr>
+                        <hr>
+                        <ul>
+                                <li>weekly views base on device {{ device_dict_weekly }}</li>
+                                <li>weekly views base on browser {{ browser_dict_weekly }}</li>
+                                <li>weekly unique views base on device {{ unique_device_dict_weekly }}</li>
+                            <li>weekly unique views base on browser {{ unique_browser_dict_weekly }}</li>
+                        </ul>
+                        <hr>
+                        <hr>
+                        <hr>
+                        <ul>
+                                <li>monthly views base on device {{ device_dict_monthly }}</li>
+                                <li>monthly views base on browser {{ browser_dict_monthly }}</li>
+                                <li>monthly unique views base on device {{ unique_device_dict_monthly }}</li>
+                            <li>monthly unique views base on browser {{ unique_browser_dict_monthly }}</li>
+                        </ul>
+
+
+
+	{% else %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				
+					<span class="login100-form-title">
+						sorry only users can use this site
+						please login 
+					</span>
+
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	
+	{% endblock %}
