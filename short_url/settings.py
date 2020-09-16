@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'yektanet',
         'USER': 'postgres',
-        'PASSWORD': 'ikobella76',
+        'PASSWORD': '********',
         'HOST': 'localhost',
         'POST': 5432,
     }
